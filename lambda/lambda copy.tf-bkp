@@ -1,0 +1,22 @@
+resource "aws_lambda_function" "example" {
+  filename      = "${path.module}/handler.py.zip"
+  function_name = "example_lambda_function"
+  role          = aws_iam_role.lambda_exec.arn
+  handler       = "handler.lambda_handler"
+  runtime       = "python3.8"
+}
+
+resource "aws_iam_role" "lambda_exec" {
+  name = "example_lambda_role-updated"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Effect    = "Allow"
+      Principal = {
+        Service = "lambda.amazonaws.com"
+      }
+      Action = "sts:AssumeRole"
+    }]
+  })
+}

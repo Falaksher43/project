@@ -1,7 +1,11 @@
 resource "random_id" "role_suffix" {
   byte_length = 4
 }
-
+#data "archive_file" "lambda_package" {
+  #type = "zip"
+ # source_file = "handler.py"
+ # output_path = "handler.py.zip"
+#}
 resource "aws_iam_role" "lambda_exec" {
   name = "example_lambda_role-${random_id.role_suffix.hex}"
 
@@ -17,7 +21,9 @@ resource "aws_iam_role" "lambda_exec" {
   })
 }
 
+
 resource "aws_lambda_function" "lambda-function" {
+  
   function_name = "example_lambda_function"  // Name of existing Lambda function
   role          = aws_iam_role.lambda_exec.arn
   handler       = "handler.lambda_handler"

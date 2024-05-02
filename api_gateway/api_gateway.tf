@@ -51,12 +51,12 @@ resource "aws_api_gateway_integration" "lambda_root" {
   uri                     = var.lambda_arn
 }
 # Define the base path mapping
-resource "aws_api_gateway_base_path_mapping" "custom_domain_mapping" {
-  depends_on   = [aws_api_gateway_deployment.example]
-  api_id       = aws_api_gateway_rest_api.example.id
-  stage_name   = aws_api_gateway_deployment.example.stage_name
-  domain_name  = var.custom_domain_name // Replace with your custom domain
-}
+#resource "aws_api_gateway_base_path_mapping" "custom_domain_mapping" {
+#  depends_on   = [aws_api_gateway_deployment.example]
+#  api_id       = aws_api_gateway_rest_api.example.id
+#  stage_name   = aws_api_gateway_deployment.example.stage_name
+#  domain_name  = var.custom_domain_name // Replace with your custom domain
+#}
 ###############################
 
 

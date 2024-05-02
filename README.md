@@ -9,9 +9,11 @@ project/
 ├── lambda/
 │   ├── lambda.tf
 │   ├── handler.py
+│   ├── output.tf
 ├── api_gateway/
 │   ├── api_gateway.tf
 │   ├── custom_domain.tf
+|   ├── variables.tf
 ├── s3/
 │   ├── s3_bucket.tf
 ```

@@ -62,6 +62,9 @@ To deploy this project, follow the steps below:
     This will remove all resources provisioned by Terraform. Be cautious as this action is irreversible.
 
 Ensure that you have appropriate permissions and credentials configured in your environment to perform these operations. For further details or customization, refer to individual Terraform configuration files within the project directory.
+
+
 5. **StateFiles**: Additionally, we can have state file stores in s3, with dynamo db to lock it.
 
-Note: For a custom domain, we have created the custom_domain.tf module. If you wish to use any custom domain, you need to modify the var.custom_domain_name variable with your custom domain and add the ACM certificate URL in the variable var.regional_arn. Then, apply the deployment.
+**Note:*** 
+For a custom domain, we have created the custom_domain.tf module. If you wish to use any custom domain, you need to modify the var.custom_domain_name variable with your custom domain and add the ACM certificate URL in the variable var.regional_arn. Then, apply the deployment.
